@@ -1,6 +1,8 @@
 name: Generic System Image Builder
 
 on:
+  watch:
+    types: [started]
   workflow_dispatch:
     
 env:
