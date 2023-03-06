@@ -3,7 +3,6 @@ name: Generic System Image Builder
 on:
   watch:
     types: [started]
-  workflow_dispatch:
     
 env:
   ROM_LINK: https://bigota.d.miui.com/V12.5.8.0.RKZCNXM/miui_ENUMA_V12.5.8.0.RKZCNXM_55786821db_11.0.zip
@@ -21,6 +20,7 @@ jobs:
          uses: actions/checkout@master
 
        - name: Clearing stuff...
+         continue-on-error: true
          run: |
            docker rmi `docker images -q`
            sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
